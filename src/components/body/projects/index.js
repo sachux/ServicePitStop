@@ -1,9 +1,10 @@
 import React from "react";
 import Separator from "../../common/separator";
-import { ProjectData } from "../../data/projects";
+import  CreateForm  from "../form";
+
 import "./projects.css";
 function Projects() {
-  const data = ProjectData;
+  const data=null;
   return (
     <div className="projects">
       <Separator />
@@ -24,7 +25,11 @@ function Projects() {
             <li>Plumbing Work</li>
         </ul>
         <button className="link-button">Create a Request</button>
+
+        
       </div>
+
+      <CreateForm/>
     </div>
   );
 }

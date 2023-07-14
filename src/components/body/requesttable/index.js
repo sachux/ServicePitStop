@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react"
+import Separator from "../../common/separator";
+import "./table.css";
+
 
 function RequestTable() {
-  const [users, setUsers] = useState([])
+  const [products, setUsers] = useState([])
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch("https://jakxwpcp84.execute-api.eu-north-1.amazonaws.com/prod/products")
-      .then(response => response.json())
-      .then(json => setUsers(json))
+    fetch("https://jakxwpcp84.execute-api.eu-north-1.amazonaws.com/prod/products", 
+          {mode:'cors'}
+          ).then(response => response.json())
+      .then(json => setUsers(json.products))
       .finally(() => {
         setLoading(false)
       })
@@ -15,12 +19,14 @@ function RequestTable() {
 
   return (
     <div className="App">
+      <Separator/>
       {loading ? (
         <div>Loading...</div>
       ) : (
         <>
-          <h1>Users</h1>
-          <table border={1}>
+          <h1>Requests</h1>
+          <div className="container-table100">
+          <table border={1} className="table100.ver1">
             <tr>
               <th>Product</th>
               <th>User Email</th>
@@ -30,8 +36,8 @@ function RequestTable() {
               <th>Type</th>
               <th>Prioirty</th>
             </tr>
-            {users.map(user => (
-              <tr>
+            {products.map(user => (
+              <tr className="row100">
                 <td>{user.product}</td>
                 <td>{user.userdetails}</td>
                 <td>{user.title}</td>
@@ -43,6 +49,7 @@ function RequestTable() {
               </tr>
             ))}
           </table>
+          </div>
         </>
       )}
     </div>
