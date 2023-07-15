@@ -20,7 +20,7 @@ function Projects() {
           Do you have any query or issue to be resolved. Create a request now though us and receive the service at your door step.
         </p>
         <ul>
-            <li>A broken electronic item</li>
+            <li>A broken electronic gadget</li>
             <li>Installation Request</li>
             <li>Plumbing Work</li>
         </ul>

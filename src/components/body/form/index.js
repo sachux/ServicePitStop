@@ -44,7 +44,7 @@ function CreateForm() {
 
   const handleSubmit = (event) => {
     const payload = {
-      "serviceId": "1005",
+      "serviceId": (type == 'Issue' ? "I" : "R") + new Date().getTime(),
       "title": title,
       "description": description,
       "type": type,
@@ -54,7 +54,11 @@ function CreateForm() {
       "userdetails": name
     }
 
-    createRequest(payload);
+    if(payload.title && payload.brand && payload.userdetails && payload.type && payload.priority){
+      createRequest(payload);
+    }else{
+      alert("Please provide all mandatory fields")
+    }
   };
 
   const createRequest = (request) => {
@@ -146,6 +150,9 @@ function CreateForm() {
       <input type="submit" value="Submit" onClick={handleSubmit} />
 
       </div>
+
+      <br />
+      <br />
 
     </>
   )

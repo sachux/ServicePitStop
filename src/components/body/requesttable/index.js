@@ -25,7 +25,7 @@ function RequestTable() {
       ) : (
         <>
           <h1>Requests</h1>
-          <div className="container-table100">
+           {/* <div className="container-table100">
           <table border={1} className="table100.ver1">
             <tr>
               <th>Product</th>
@@ -49,9 +49,57 @@ function RequestTable() {
               </tr>
             ))}
           </table>
+          </div>  */}
+
+          <div>
+            {products.map(user => (
+
+              <div className="card">
+                <br/>
+                <table>
+                  <tr>
+                  <td width="150px">{user.type}</td>
+                    <td><strong>{user.title} <span className={user.priority}>{user.priority}</span> </strong></td>
+                  </tr>
+                  <tr>
+                    <td  width="100px" height="100px">
+                      {/* <img src={require("../img/.png")}></img> */}
+                       <img width="50px" height="50px"
+            
+                      src={require(`../../../assets/${user.brand ? user.brand : 'Serviceps'}.png`)}
+          /> 
+          <div>{user.product}</div>
+                    </td>
+                    <td>
+                        <table>
+                        <tr>
+                        <td>{user.serviceId} </td>
+                        </tr>
+                        <tr>
+                        <td>{user.description}</td>
+                        </tr>
+                        <tr>
+                        <td>{user.product} </td>
+                        </tr>
+                        <tr>
+                        <td> Requestor: {user.userdetails}</td>
+                        </tr>
+                        
+                        
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            ))}
+
           </div>
         </>
       )}
+
+        <br />
+        <br />
     </div>
   )
 }
