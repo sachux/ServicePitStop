@@ -24,8 +24,6 @@ function Projects() {
             <li>Installation Request</li>
             <li>Plumbing Work</li>
         </ul>
-        <button className="link-button">Create a Request</button>
-
         
       </div>
 

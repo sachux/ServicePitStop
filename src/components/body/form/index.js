@@ -51,7 +51,7 @@ function CreateForm() {
       "priority": priority,
       "brand": brand,
       "product": product,
-      "userdetails": ""
+      "userdetails": name
     }
 
     createRequest(payload);
@@ -75,7 +75,12 @@ function CreateForm() {
           <hr></hr>
         <label>
           Brand:</label>
-        <input type="text" value={brand} onChange={handlebrandChange} />
+        <select value={brand} onChange={handlebrandChange}>
+          <option value="Dell">Dell</option>
+          <option value="Lenovo">Lenovo</option>
+          <option value="Apple">Apple</option>
+          <option value="HP">HP</option>
+        </select>
 
         <br />
 
@@ -91,7 +96,10 @@ function CreateForm() {
           <hr></hr>
         <label>
           Type:</label>
-        <input type="text" value={type} onChange={handletypeChange} />
+        <select value={type} onChange={handletypeChange}>
+          <option value="Issue">Issue</option>
+          <option value="Service Request">Service Request</option>
+        </select>
 
 
         <br />
@@ -114,7 +122,11 @@ function CreateForm() {
           Priority:
         </label>
 
-        <input type="text" value={priority} onChange={handlepriorityChange} />
+        <select value={priority} onChange={handlepriorityChange}>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
 
         <br />
         <br />
